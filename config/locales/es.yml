@@ -1,3 +1,26 @@
 es:
   app_name: "Mascotas soa"
   meta_title: "Mascotas spa - la mejor lugar para encontrar a tu mascota"
+  active_record:
+    attributes:
+      user:
+        first_name: "Nombre"
+        last_name: "Apellido"
+        username: "Nombre de usuario"
+        phone: "Teléfono"
+        email: "Email"
+        password: "Contraseña"
+        password_confirmation: "Confirmación de contraseña"
+        role: "Rol"
+    errors:
+      messages:
+        blank: "no puede estar en blanco"
+        invalid: "no es válido"
+        too_long: "es demasiado largo (máximo: %{count} caracteres)"
+        too_short: "es demasiado corto (mínimo: %{count} caracteres)"
+  authentication:
+    users:
+      new:
+        title: "Registro"
+    new:
+      account_created: "El usuario fue creado exitosamente."

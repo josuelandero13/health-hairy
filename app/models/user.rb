@@ -20,4 +20,12 @@ class User < ApplicationRecord
   validates :phone, presence: true
 
   enum role: [:client, :stylist, :admin]
+
+  ROLES = %w[client stylist admin].freeze
+
+  ROLES.each do |role|
+    define_method "#{role}?" do
+      role == self.role
+    end
+  end
 end

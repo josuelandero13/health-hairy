@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -7,4 +9,10 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root 'home#welcome'
+
+  namespace :authentication, as: '', path: '' do
+    resources :users, only: %i[new create],
+                      path: '/register',
+                      path_names: { new: '/' }
+  end
 end

@@ -1,3 +1,26 @@
 en:
   app_name: "Petspa"
   meta_title: "Petspa - the best place to find your pet"
+  active_record:
+    attributes:
+      user:
+        first_name: "First name"
+        last_name: "Last name"
+        username: "Username"
+        phone: "Phone"
+        email: "Email"
+        password: "Password"
+        password_confirmation: "Password confirmation"
+        role: "Role"
+    errors:
+      messages:
+        blank: "can't be blank"
+        invalid: "is invalid"
+        too_long: "is too long (maximum: %{count} characters)"
+        too_short: "is too short (minimum: %{count} characters)"
+  authentication:
+    users:
+      new:
+        title: "Registration"
+    new:
+      account_created: "The user was created successfully."

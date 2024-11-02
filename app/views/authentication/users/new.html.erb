@@ -1,4 +1,4 @@
-<h1><%= t('.title') %></h1>
+<h1><%= t('authentication.users.views.new.title') %></h1>
 
 <%= form_with(model: @user, local: true) do |form| %>
   <% if @user.errors.any? %>
@@ -10,7 +10,9 @@
   <% end %>
 
   <div data-controller='previews'>
-    <%= form.label :avatar, 'Tu foto' %>
+    <%=
+      form.label :avatar, t('authentication.users.views.new.avatar')
+    %>
     <%=
       form.file_field :avatar, direct_upload: true,
         data: {

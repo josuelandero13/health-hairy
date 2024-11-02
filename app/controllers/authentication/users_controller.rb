@@ -7,11 +7,17 @@ class Authentication::UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    successful_message =
+      t('authentication.users.actions.create.user_created')
 
-    return redirect_to root_path, notice: t('.account_created') if @user.save
+    return redirect_to root_path, notice: successful_message if @user.save
 
     render :new, status: :unprocessable_entity
   end
+
+  def edit; end
+
+  def update; end
 
   private
 

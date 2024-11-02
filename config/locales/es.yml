@@ -20,7 +20,21 @@ es:
         too_short: "es demasiado corto (mínimo: %{count} caracteres)"
   authentication:
     users:
-      new:
-        title: "Registro"
-    new:
-      account_created: "El usuario fue creado exitosamente."
+      views:
+        new:
+          title: "Registrarse"
+          avatar: "Tu foto"
+      actions:
+        create:
+          user_created: "El usuario fue creado exitosamente."
+    sessions:
+      views:
+        new:
+          title: "Iniciar sesión"
+          label_login: "Usuario o correo electrónico"
+          label_password: "Contraseña"
+      actions:
+        create:
+          session_created: "Has iniciado sesión exitosamente."
+          session_destroyed: "Has cerrado sesión exitosamente."
+          invalid_credentials: "Credenciales de inicio de sesión no válidas."

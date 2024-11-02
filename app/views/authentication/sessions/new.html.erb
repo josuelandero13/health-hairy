@@ -1,0 +1,23 @@
+<h1><%= t('authentication.sessions.views.new.title') %></h1>
+
+<%= form_with(url: sessions_path, local: true) do |form| %>
+  <div>
+    <%=
+      form.label :login,
+        t('authentication.sessions.views.new.label_login')
+    %>
+    <%= form.text_field :login, required: true %>
+  </div>
+
+  <div>
+    <%=
+      form.label :password,
+        t('authentication.sessions.views.new.label_password')
+    %>
+    <%= form.password_field :password, required: true %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

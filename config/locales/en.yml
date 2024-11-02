@@ -18,9 +18,25 @@ en:
         invalid: "is invalid"
         too_long: "is too long (maximum: %{count} characters)"
         too_short: "is too short (minimum: %{count} characters)"
+  application:
+    authenticate_user: "You must be logged in to do that."
   authentication:
     users:
-      new:
-        title: "Registration"
-    new:
-      account_created: "The user was created successfully."
+      views:
+        new:
+          title: "Register"
+          avatar: "Your photo"
+      actions:
+        create:
+          user_created: "The user was created successfully."
+    sessions:
+      views:
+        new:
+          title: "Login"
+          label_login: "Username or email"
+          label_password: "Password"
+      actions:
+        create:
+          session_created: "You have been logged in successfully."
+          session_destroyed: "You have been logged out successfully."
+          invalid_credentials: "Invalid login credentials."

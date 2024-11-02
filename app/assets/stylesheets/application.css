@@ -13,3 +13,10 @@
  *= require_tree .
  *= require_self
  */
+
+.avatar-preview {
+  width: 200px;
+  height: 200px;
+  border: 1px solid #020202;
+  border-radius: 80%;
+}

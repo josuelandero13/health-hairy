@@ -19,7 +19,7 @@ class Authentication::UsersController < ApplicationController
     params.require(:user).permit(
       :first_name, :last_name, :email,
       :username, :phone, :password,
-      :password_confirmation, :role
+      :password_confirmation, :role, :avatar
     )
   end
 end

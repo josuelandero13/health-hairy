@@ -10,7 +10,7 @@ class Authentication::SessionsController < ApplicationController
     session_created_notice =
       t('authentication.sessions.actions.create.session_created')
 
-    return render_login_error! unless authenticated_user?
+    return render_login_error! unless @user&.authenticate(params[:password])
 
     login @user
     redirect_to root_path, notice: session_created_notice
@@ -27,10 +27,9 @@ class Authentication::SessionsController < ApplicationController
   private
 
   def render_login_error!
-    invalid_credentials_notice =
+    flash[:alert] =
       t('authentication.sessions.actions.create.invalid_credentials')
-
-    render :new, status: :unprocessable_entity, alert: invalid_credentials_notice
+    render :new, status: :unprocessable_entity
   end
 
   def authenticated_user?

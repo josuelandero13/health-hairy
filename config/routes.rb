@@ -18,5 +18,8 @@ Rails.application.routes.draw do
     resources :sessions, only: %i[new create destroy],
                          path: '/login',
                          path_names: { new: '/' }
+    resources :passwords, only: %i[edit update],
+                          path: '/password',
+                          path_names: { edit: '/' }
   end
 end

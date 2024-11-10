@@ -52,3 +52,8 @@
     <%= form.submit %>
   </div>
 <% end %>
+
+<%=
+  link_to t('authentication.users.views.edit.button_change_password'),
+    edit_password_path(current_user)
+%>

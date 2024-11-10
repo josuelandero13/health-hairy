@@ -26,6 +26,8 @@ en:
         new:
           title: "Register"
           avatar: "Your photo"
+        edit:
+          button_change_password: "Change password"
       actions:
         create:
           user_created: "The user was created successfully."
@@ -40,3 +42,13 @@ en:
           session_created: "You have been logged in successfully."
           session_destroyed: "You have been logged out successfully."
           invalid_credentials: "Invalid login credentials."
+    passwords:
+      views:
+        edit:
+          title: "Update password"
+          label_current_password: "Current password"
+          label_new_password: "New password"
+          button_update_password: "Update password"
+      actions:
+        update:
+          password_updated: "Your password was updated successfully."

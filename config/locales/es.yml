@@ -24,6 +24,8 @@ es:
         new:
           title: "Registrarse"
           avatar: "Tu foto"
+        edit:
+          button_change_password: "Cambiar contraseña"
       actions:
         create:
           user_created: "El usuario fue creado exitosamente."
@@ -38,3 +40,13 @@ es:
           session_created: "Has iniciado sesión exitosamente."
           session_destroyed: "Has cerrado sesión exitosamente."
           invalid_credentials: "Credenciales de inicio de sesión no válidas."
+    passwords:
+      views:
+        edit:
+          title: "Actualizar contraseña"
+          label_current_password: "Contraseña actual"
+          label_new_password: "Nueva contraseña"
+          button_update_password: "Actualizar contraseña"
+      actions:
+        update:
+          password_updated: "Tu contraseña fue actualizada exitosamente."

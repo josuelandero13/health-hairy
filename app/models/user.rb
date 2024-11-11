@@ -21,7 +21,7 @@ class User < ApplicationRecord
                        }
   validates :phone, presence: true
 
-  enum role: [:client, :stylist, :admin]
+  enum :role, %i[client stylist admin]
 
   ROLES = %w[client stylist admin].freeze
 

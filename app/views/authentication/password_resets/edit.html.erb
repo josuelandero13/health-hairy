@@ -1,0 +1,27 @@
+<h1><%= t('authentication.password_resets.views.edit.title') %></h1>
+
+<%= form_with(model: @user, url: password_resets_path(token: params[:token])) do |form| %>
+  <% if form&.object&.errors.any? %>
+    <%= form&.object&.errors&.full_messages&.each do |error| %>
+      <%= error %>
+    <% end %>
+  <% end %>
+
+  <div>
+    <%=
+      form.label :password, t('authentication.password_resets.views.edit.label_new_password')
+    %>
+    <%= form.password_field :password, required: true %>
+  </div>
+
+  <div>
+    <%= form.label :password_confirmation %>
+    <%= form.password_field :password_confirmation, required: true %>
+  </div>
+
+  <div>
+    <%=
+      form.submit t('authentication.password_resets.views.button_reset_password')
+    %>
+  </div>
+<% end %>

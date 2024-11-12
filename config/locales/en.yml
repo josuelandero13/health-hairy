@@ -37,6 +37,7 @@ en:
           title: "Login"
           label_login: "Username or email"
           label_password: "Password"
+          link_forgot_password: "Forgot your password?"
       actions:
         create:
           session_created: "You have been logged in successfully."
@@ -52,3 +53,16 @@ en:
       actions:
         update:
           password_updated: "Your password was updated successfully."
+    password_resets:
+      invalid_token_alert: "Invalid token, please try again."
+      actions:
+        create:
+          password_reset_instructions: "Password reset instructions sent to your email."
+          incorrect_email: "Email not found."
+        update:
+          password_reset_success: "Password reset succesfully!. Please login"
+      views:
+        button_reset_password: "Reset Password"
+        edit:
+          title: "Reset Password"
+          label_new_password: "New Password"

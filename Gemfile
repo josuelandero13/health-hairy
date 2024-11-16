@@ -34,6 +34,9 @@ gem 'turbo-rails'
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[windows jruby]
 
+# Use Tailwind CSS [https://github.com/rails/tailwindcss-rails]
+gem 'tailwindcss-rails', '~> 3.0'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 8.0.0'
 

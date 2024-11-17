@@ -12,6 +12,11 @@ en:
         password: "Password"
         password_confirmation: "Password confirmation"
         role: "Role"
+      appointment_type:
+        name: "Name"
+        payment_required: "Payment required"
+        price: "Price"
+        description: "Description"
     errors:
       messages:
         blank: "can't be blank"
@@ -66,3 +71,24 @@ en:
         edit:
           title: "Reset Password"
           label_new_password: "New Password"
+  appointment_types:
+    link_to_show_appointment_type: "Show this appointment type"
+    new_appointment_type: "New appointment type"
+    link_to_back: "Back to appointment types"
+    actions:
+      create:
+        appointment_type_created: "Appointment type was successfully created."
+      update:
+        appointment_type_updated: "Appointment type was successfully updated."
+      destroy:
+        appointment_type_destroyed: "Appointment type was successfully destroyed."
+    views:
+      edit:
+        title: "Editing appointment type"
+      index:
+        title: "Appointment types"
+      new:
+        title: "New appointment type"
+      show:
+        link_to_edit: "Edit this appointment type"
+        link_to_destroy: "Destroy this appointment type"

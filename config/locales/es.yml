@@ -12,6 +12,11 @@ es:
         password: "Contraseña"
         password_confirmation: "Confirmación de contraseña"
         role: "Rol"
+      appointment_type:
+        name: "Nombre"
+        payment_required: "Pago requerido"
+        price: "Precio"
+        description: "Descripción"
     errors:
       messages:
         blank: "no puede estar en blanco"
@@ -65,3 +70,24 @@ es:
         edit:
           title: "Restablecer contraseña"
           label_new_password: "Nueva contraseña"
+  appointment_types:
+    link_to_show_appointment_type: "Mostrar este tipo de cita"
+    new_appointment_type: "Nuevo tipo de cita"
+    link_to_back: "Volver a tipos de citas"
+    actions:
+      create:
+        appointment_type_created: "Tipo de cita creado exitosamente."
+      update:
+        appointment_type_updated: "Tipo de cita actualizado exitosamente."
+      destroy:
+        appointment_type_destroyed: "Tipo de cita eliminado exitosamente."
+    views:
+      edit:
+        title: "Editar tipo de cita"
+      index:
+        title: "Tipos de citas"
+      new:
+        title: "Nuevo tipo de cita"
+      show:
+        link_to_edit: "Editar este tipo de cita"
+        link_to_destroy: "Eliminar este tipo de cita"

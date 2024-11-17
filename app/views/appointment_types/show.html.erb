@@ -1,0 +1,28 @@
+<div class='mx-auto md:w-2/3 w-full flex'>
+  <div class='mx-auto'>
+    <% if notice.present? %>
+      <p
+        id='notice'
+        class='py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block'
+      >
+        <%= notice %>
+      </p>
+    <% end %>
+
+    <%= render @appointment_type %>
+
+    <%=
+      link_to t('appointment_types.views.show.link_to_edit'), edit_appointment_type_path(@appointment_type),
+        class: 'mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium'
+    %>
+    <%=
+      link_to t('appointment_types.link_to_back'), appointment_types_path,
+        class: 'ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium' %>
+    <div class='inline-block ml-2'>
+      <%=
+        button_to t('appointment_types.views.show.link_to_destroy'), @appointment_type,
+          method: :delete, class: 'mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium'
+      %>
+    </div>
+  </div>
+</div>

@@ -30,4 +30,6 @@ Rails.application.routes.draw do
                                 path_names: { new: '/' }
     patch '/password_resets', to: 'password_resets#update'
   end
+
+  resources :appointment_types
 end

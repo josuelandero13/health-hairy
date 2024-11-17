@@ -2,11 +2,24 @@
 class ApplicationController < ActionController::Base
   around_action :switch_locale
 
+  class NotAuthorizedError < StandardError; end
+
+  rescue_from NotAuthorizedError do
+    redirect_to root_path, alert: t('application.authenticate_user_alert')
+  end
+
   def switch_locale(&action)
     I18n.with_locale(locale_from_header, &action)
   end
 
   private
+
+  def authorize!(record = nil)
+    is_alowed =
+      record.present? ? record.user_id == current_user.id : current_user.admin?
+
+    raise NotAuthorizedError unless is_alowed
+  end
 
   def locale_from_header
     request.env['HTTP_ACCEPT_LANGUAGE']&.scan(/^[a-z]{2}/)&.first || I18n.default_locale

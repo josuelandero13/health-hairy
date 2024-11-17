@@ -25,6 +25,7 @@ en:
         too_short: "is too short (minimum: %{count} characters)"
   application:
     authenticate_user: "You must be logged in to do that."
+    authenticate_user_alert: "Your are not authorized to perform that action."
   authentication:
     users:
       views:

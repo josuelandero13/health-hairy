@@ -32,4 +32,6 @@ Rails.application.routes.draw do
   end
 
   resources :appointment_types
+  resources :cities
+  resources :locals
 end

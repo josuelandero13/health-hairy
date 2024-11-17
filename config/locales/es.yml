@@ -23,6 +23,9 @@ es:
         invalid: "no es válido"
         too_long: "es demasiado largo (máximo: %{count} caracteres)"
         too_short: "es demasiado corto (mínimo: %{count} caracteres)"
+  application:
+    authenticate_user: "Debes estar registrado para hacer eso."
+    authenticate_user_alert: "No estás autorizado para realizar esa acción."
   authentication:
     users:
       views:

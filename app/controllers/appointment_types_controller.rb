@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class AppointmentTypesController < ApplicationController
+  before_action :authenticate_user!
+  before_action :authorize!
   before_action :set_appointment_type, only: %i[show edit update destroy]
 
   def index

@@ -1,6 +1,10 @@
 es:
   app_name: "Mascotas spa"
   meta_title: "Mascotas spa - la mejor lugar para encontrar a tu mascota"
+  alerts:
+    authentication:
+      user_not_logged_in: "Debes estar registrado para hacer eso."
+      user_not_authorized: "No estás autorizado para realizar esa acción."
   active_record:
     attributes:
       user:
@@ -24,7 +28,6 @@ es:
         too_long: "es demasiado largo (máximo: %{count} caracteres)"
         too_short: "es demasiado corto (mínimo: %{count} caracteres)"
   application:
-    authenticate_user: "Debes estar registrado para hacer eso."
     authenticate_user_alert: "No estás autorizado para realizar esa acción."
   authentication:
     users:

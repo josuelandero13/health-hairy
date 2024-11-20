@@ -1,6 +1,10 @@
 en:
   app_name: "Petspa"
   meta_title: "Petspa - the best place to find your pet"
+  alerts:
+    authentication:
+      user_not_logged_in: "You must be logged in to do that."
+      user_not_authorized: "You are not authorized to perform that action ....."
   active_record:
     attributes:
       user:
@@ -24,7 +28,6 @@ en:
         too_long: "is too long (maximum: %{count} characters)"
         too_short: "is too short (minimum: %{count} characters)"
   application:
-    authenticate_user: "You must be logged in to do that."
     authenticate_user_alert: "Your are not authorized to perform that action."
   authentication:
     users:

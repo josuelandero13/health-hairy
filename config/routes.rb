@@ -34,4 +34,5 @@ Rails.application.routes.draw do
   resources :appointment_types
   resources :cities
   resources :locals
+  resources :pets
 end

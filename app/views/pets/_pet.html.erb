@@ -1,0 +1,34 @@
+<div id='<%= dom_id pet %>'>
+  <div>
+    <% if pet.photo.attached? %>
+      <%= image_tag pet.photo, class: 'avatar-preview' %>
+    <% else %>
+      <%= image_tag 'placeholder.jpg', class: 'avatar-preview' %>
+    <% end %>
+  </div>
+
+  <p class='my-5'>
+    <strong class='block font-medium mb-1'>Name:</strong>
+    <%= pet.name %>
+  </p>
+
+  <p class='my-5'>
+    <strong class='block font-medium mb-1'>Bred:</strong>
+    <%= pet.bred %>
+  </p>
+
+  <p class='my-5'>
+    <strong class='block font-medium mb-1'>Kind:</strong>
+    <%= pet.kind %>
+  </p>
+
+  <p class='my-5'>
+    <strong class='block font-medium mb-1'>Owner:</strong>
+    <%= "#{pet.user&.first_name} #{pet.user&.last_name}" %>
+  </p>
+
+  <p class="my-5 flex gap-5">
+    <strong class="block font-medium mb-1">Important notes:</strong>
+    <%= pet.important_notes.body.to_plain_text %>
+  </p>
+</div>

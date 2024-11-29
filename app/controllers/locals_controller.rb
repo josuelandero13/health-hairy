@@ -27,7 +27,6 @@ class LocalsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /locals/1 or /locals/1.json
   def update
     if @local.update(local_params)
       redirect_to @local, notice: 'Local was successfully updated.'

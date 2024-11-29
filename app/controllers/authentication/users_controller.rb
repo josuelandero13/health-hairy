@@ -7,7 +7,7 @@ class Authentication::UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    binding.break
+
     successful_message =
       t('authentication.users.actions.create.user_created')
 

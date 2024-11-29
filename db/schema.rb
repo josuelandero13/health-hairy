@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2024_11_17_192011) do
+ActiveRecord::Schema[8.0].define(version: 2024_11_29_162202) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
   enable_extension "pgcrypto"
@@ -77,6 +77,16 @@ ActiveRecord::Schema[8.0].define(version: 2024_11_17_192011) do
     t.index ["city_id"], name: "index_locals_on_city_id"
   end
 
+  create_table "pets", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "name", null: false
+    t.string "bred", null: false
+    t.integer "kind", null: false
+    t.uuid "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_pets_on_user_id"
+  end
+
   create_table "users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "first_name", null: false
     t.string "last_name", null: false
@@ -96,4 +106,5 @@ ActiveRecord::Schema[8.0].define(version: 2024_11_17_192011) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "appointment_types", "users"
   add_foreign_key "locals", "cities"
+  add_foreign_key "pets", "users"
 end

@@ -16,32 +16,50 @@
     </div>
   <% end %>
 
+  <h3>Personal information</h3>
+
   <div class='my-5'>
-    <%= form.label :status %>
-    <%= form.number_field :status, class: 'block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full' %>
+    <strong>Owner:</strong>
+    <%= current_user.first_name %> <%= current_user.last_name %>
   </div>
 
   <div class='my-5'>
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id, class: 'block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full' %>
+    <%= form.label :pet_id %>
+    <%= form.select :pet_id, Pet.kinds.map { |key, value| [key.capitalize, value.to_i] },
+        { prompt: 'Select Kind' },
+        class: 'block shadow rounded-md border border-gray-400
+                outline-none px-3 py-2 mt-2 w-full'
+    %>
   </div>
 
   <div class='my-5'>
-    <%= form.label :appointment_type_id %>
-    <%= form.text_field :appointment_type_id, class: 'block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full' %>
+    <%= form.label :notes %>
+    <%=
+      form.rich_text_area :notes,
+        class: 'block shadow rounded-md border border-gray-400
+                outline-none px-3 py-2 mt-2 w-full' %>
   </div>
 
   <div class='my-5'>
     <%= form.label :start_at %>
-    <%= form.datetime_field :start_at, class: 'block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full' %>
+    <%=
+      form.datetime_field :start_at,
+        class: 'block shadow rounded-md border border-gray-400
+                outline-none px-3 py-2 mt-2 w-full' %>
   </div>
 
   <div class='my-5'>
     <%= form.label :end_at %>
-    <%= form.datetime_field :end_at, class: 'block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full' %>
+    <%=
+      form.datetime_field :end_at,
+        class: 'block shadow rounded-md border border-gray-400
+                outline-none px-3 py-2 mt-2 w-full' %>
   </div>
 
   <div class='inline'>
-    <%= form.submit class: 'rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer' %>
+    <%=
+      form.submit class: 'rounded-lg py-3 px-5 bg-blue-600 text-white
+                          inline-block font-medium cursor-pointer'
+    %>
   </div>
 <% end %>

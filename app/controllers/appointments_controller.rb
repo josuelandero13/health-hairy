@@ -17,6 +17,7 @@ class AppointmentsController < ApplicationController
 
   def create
     @appointment = Appointment.new(appointment_params)
+    @appointment.client = current_user
 
     return render :new, status: :unprocessable_entity unless @appointment.save
 
@@ -45,6 +46,9 @@ class AppointmentsController < ApplicationController
   end
 
   def appointment_params
-    params.expect(appointment: %I[status user_id appointment_type_id start_at end_at])
+    params.expect(
+      appointment:
+        %I[status appointment_type_id start_at end_at pet_id notes]
+    )
   end
 end

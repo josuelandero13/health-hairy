@@ -3,6 +3,7 @@
 class Pet < ApplicationRecord
   has_one_attached :photo
   belongs_to :user
+  has_many :appointments
 
   has_rich_text :important_notes
   validates :name, :bred, :kind, presence: true

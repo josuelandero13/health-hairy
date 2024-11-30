@@ -7,9 +7,6 @@ Rails.application.routes.draw do
   # Can be used by load balancers and uptime monitors to verify that the app is live.
   get 'up' => 'rails/health#show', as: :rails_health_check
 
-  # Defines the root path route ('/')
-  root 'home#welcome'
-
   namespace :authentication, as: '', path: '' do
     resources :users, only: %i[new create edit update],
                       path: '/register',
@@ -30,10 +27,15 @@ Rails.application.routes.draw do
                                 path_names: { new: '/' }
     patch '/password_resets', to: 'password_resets#update'
   end
-
-  resources :appointment_types
-  resources :cities
-  resources :locals
   resources :pets
+  resources :locals
+  resources :cities
+  resources :appointment_types
   resources :appointments
+
+  get '/dashboard', to: 'home#dashboard', as: 'dashboard'
+  get '/dashboard_admin', to: 'home#dashboard_admin', as: 'dashboard_admin'
+  get '/welcome', to: 'home#welcome', as: 'welcome'
+
+  root to: 'home#rooting'
 end

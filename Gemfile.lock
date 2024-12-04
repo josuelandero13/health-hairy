@@ -82,7 +82,6 @@ GEM
     bootsnap (1.18.4)
       msgpack (~> 1.2)
     builder (3.3.0)
-    byebug (11.1.3)
     capybara (3.40.0)
       addressable
       matrix
@@ -151,6 +150,7 @@ GEM
       net-smtp
     marcel (1.0.4)
     matrix (0.4.2)
+    method_source (1.1.0)
     mini_magick (4.13.2)
     mini_mime (1.1.5)
     minitest (5.25.1)
@@ -283,6 +283,10 @@ GEM
       concurrent-ruby (~> 1.0)
     uri (1.0.1)
     useragent (0.16.10)
+    view_component (3.20.0)
+      activesupport (>= 5.2.0, < 8.1)
+      concurrent-ruby (~> 1.0)
+      method_source (~> 1.0)
     web-console (4.2.1)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
@@ -307,7 +311,6 @@ PLATFORMS
 DEPENDENCIES
   bcrypt (~> 3.1.7)
   bootsnap
-  byebug (~> 11.1)
   capybara
   debug
   factory_bot_rails (~> 6.4)
@@ -326,6 +329,7 @@ DEPENDENCIES
   tailwindcss-rails (~> 3.0)
   turbo-rails
   tzinfo-data
+  view_component (~> 3.20)
   web-console
 
 RUBY VERSION

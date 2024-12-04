@@ -23,14 +23,14 @@
     <%= current_user.first_name %> <%= current_user.last_name %>
   </div>
 
-  <div class='my-5'>
+  <div class="my-5">
     <%= form.label :pet_id %>
-    <%= form.select :pet_id, Pet.kinds.map { |key, value| [key.capitalize, value.to_i] },
-        { prompt: 'Select Kind' },
-        class: 'block shadow rounded-md border border-gray-400
-                outline-none px-3 py-2 mt-2 w-full'
-    %>
+    <%=
+      form.collection_select :pet_id, current_user&.pets, :id, :name, { prompt: "Select Pet" },
+        class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
+
+  <%= form.hidden_field :local_id, value: params[:local_id] %>
 
   <div class='my-5'>
     <%= form.label :notes %>
@@ -39,6 +39,26 @@
         class: 'block shadow rounded-md border border-gray-400
                 outline-none px-3 py-2 mt-2 w-full' %>
   </div>
+
+  <% if @appointment.new_record? %>
+    <div class="mb-6">
+      <div class="rounded border-slate-300 border shadow-sm bg-white py-6 px-10 inline-block relative">
+        <%= form.label :appointment_type_id, "Appointment type"%>
+        <input
+          type="hidden"
+          name="appointment[appointment_type_id]"
+          value="<%= @appointment_type&.id %>"
+        >
+        <div class="flex items-start">
+          <div class="text-3xl font-bold mr-3">
+            <%= @appointment_type&.name %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% else %>
+    <%= @appointment.appointment_type&.name %>
+  <% end %>
 
   <div class='my-5'>
     <%= form.label :start_at %>

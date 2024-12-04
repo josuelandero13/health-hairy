@@ -2,14 +2,16 @@
 
 class LocalsController < ApplicationController
   before_action :authenticate_user!
-  before_action :authorize!
+  before_action :authorize!, except: %i[show]
   before_action :set_local, only: %i[show edit update destroy]
 
   def index
     @locals = Local.all
   end
 
-  def show; end
+  def show
+    @appointment_types = AppointmentType.order(name: :asc)
+  end
 
   def new
     @local = Local.new

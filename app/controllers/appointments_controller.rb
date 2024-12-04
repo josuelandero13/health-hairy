@@ -11,6 +11,7 @@ class AppointmentsController < ApplicationController
 
   def new
     @appointment = Appointment.new
+    @appointment_type = AppointmentType.find_by(id: params[:appointment_type])
   end
 
   def edit; end
@@ -18,6 +19,9 @@ class AppointmentsController < ApplicationController
   def create
     @appointment = Appointment.new(appointment_params)
     @appointment.client = current_user
+    @appointment_type = AppointmentType.find(
+      params[:appointment][:appointment_type_id]
+    )
 
     return render :new, status: :unprocessable_entity unless @appointment.save
 
@@ -48,7 +52,7 @@ class AppointmentsController < ApplicationController
   def appointment_params
     params.expect(
       appointment:
-        %I[status appointment_type_id start_at end_at pet_id notes]
+        %I[status appointment_type_id start_at end_at pet_id notes local_id]
     )
   end
 end

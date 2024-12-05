@@ -12,6 +12,7 @@ class AppointmentsController < ApplicationController
   def new
     @appointment = Appointment.new
     @appointment_type = AppointmentType.find_by(id: params[:appointment_type])
+    @appointment.payments.build
   end
 
   def edit; end
@@ -50,9 +51,11 @@ class AppointmentsController < ApplicationController
   end
 
   def appointment_params
-    params.expect(
-      appointment:
-        %I[status appointment_type_id start_at end_at pet_id notes local_id]
+    params.require(:appointment).permit(
+      :status, :appointment_type_id,
+      :start_at, :end_at,
+      :notes, :pet_id, :local_id,
+      payments_attributes: %i[id billing_status user_id receipt _destroy]
     )
   end
 end

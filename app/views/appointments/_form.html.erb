@@ -1,4 +1,8 @@
-<%= form_with(model: appointment, class: 'contents') do |form| %>
+<%= form_with(model: appointment, class: 'contents', data: {
+  controller: 'nested-form',
+  nested_form_wrapper_selector_value: '.nested-form-wrapper'
+}) do |form|
+%>
   <% if appointment.errors.any? %>
     <div
       id='error_explanation'
@@ -75,6 +79,12 @@
         class: 'block shadow rounded-md border border-gray-400
                 outline-none px-3 py-2 mt-2 w-full' %>
   </div>
+
+  <h3 class="font-bold text-lg mb-3">Payment details</h3>
+
+  <%= form.fields_for :payments do |payment_fields| %>
+    <%= render "appointments/appointment_payment_form", f: payment_fields %>
+  <% end %>
 
   <div class='inline'>
     <%=

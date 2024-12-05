@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2024_12_04_194605) do
+ActiveRecord::Schema[8.0].define(version: 2024_12_05_180838) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
   enable_extension "pgcrypto"
@@ -94,6 +94,16 @@ ActiveRecord::Schema[8.0].define(version: 2024_12_04_194605) do
     t.index ["city_id"], name: "index_locals_on_city_id"
   end
 
+  create_table "payments", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.integer "billing_status", default: 0
+    t.uuid "user_id", null: false
+    t.uuid "appointment_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["appointment_id"], name: "index_payments_on_appointment_id"
+    t.index ["user_id"], name: "index_payments_on_user_id"
+  end
+
   create_table "pets", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "name", null: false
     t.string "bred", null: false
@@ -127,5 +137,7 @@ ActiveRecord::Schema[8.0].define(version: 2024_12_04_194605) do
   add_foreign_key "appointments", "pets"
   add_foreign_key "appointments", "users", column: "client_id"
   add_foreign_key "locals", "cities"
+  add_foreign_key "payments", "appointments"
+  add_foreign_key "payments", "users"
   add_foreign_key "pets", "users"
 end

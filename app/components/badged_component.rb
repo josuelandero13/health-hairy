@@ -10,7 +10,7 @@ class BadgedComponent < ViewComponent::Base
     'absolute top-3 right-3 w-3 h-3 rounded-full'
   end
 
-  def bg_color2
+  def bg_color
     "background-color: #{background_color}"
   end
 

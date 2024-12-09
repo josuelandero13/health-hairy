@@ -1,26 +1,41 @@
-<div id='<%= dom_id appointment %>'>
-  <p class='my-5'>
-    <strong class='block font-medium mb-1'>Status:</strong>
+<tr id='<%= dom_id appointment %>'>
+  <td
+    data-label='Status'
+    class='border border-slate-300 bg-white text-left p-4'
+  >
     <%= appointment.status %>
-  </p>
-
-  <p class='my-5'>
-    <strong class='block font-medium mb-1'>User:</strong>
-    <%= "#{appointment.client.first_name} #{appointment.client.last_name}" %>
-  </p>
-
-  <p class='my-5'>
-    <strong class='block font-medium mb-1'>Appointment type:</strong>
+  </td>
+  <td
+    data-label='Pet Name'
+    class='border border-slate-300 bg-white text-left p-4'
+  >
+    <%= appointment.pet&.name %>
+  </td>
+  <td data-label='Breed' class='border border-slate-300 bg-white text-left p-4'>
+    <%= appointment.pet&.breed %>
+  </td>
+  <td data-label='Kind' class='border border-slate-300 bg-white text-left p-4'>
+    <%= appointment.pet&.kind %>
+  </td>
+  <td
+    data-label='Starts'
+    class='border border-slate-300 bg-white text-left p-4'
+  >
+    <%= appointment.start_at.strftime('%b %e, %Y at %l:%M %p') %>
+  </td>
+  <td data-label='Ends' class='border border-slate-300 bg-white text-left p-4'>
+    <%= appointment.end_at.strftime('%b %e, %Y at %l:%M %p') %>
+  </td>
+  <td
+    data-label='Appointment Type'
+    class='border border-slate-300 bg-white text-left p-4'
+  >
     <%= appointment.appointment_type.name %>
-  </p>
-
-  <p class='my-5'>
-    <strong class='block font-medium mb-1'>Start at:</strong>
-    <%= appointment.start_at %>
-  </p>
-
-  <p class='my-5'>
-    <strong class='block font-medium mb-1'>End at:</strong>
-    <%= appointment.end_at %>
-  </p>
-</div>
+  </td>
+  <td data-label='Paid' class='border border-slate-300 bg-white text-left p-4'>
+    <%=
+      appointment.payments&.any? ? appointment.payments&.first.billing_status
+                                 : 'No required'
+    %>
+  </td>
+</tr>

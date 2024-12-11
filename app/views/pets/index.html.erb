@@ -1,17 +1,17 @@
-<div class='w-full'>
+<div class='p-8 mx-20'>
   <% content_for :title, 'Pets' %>
 
   <div class='flex justify-between items-center'>
     <h1 class='font-bold text-4xl'>Pets</h1>
-    <%= link_to 'New pet', new_pet_path, class: 'rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium' %>
+    <%=
+      link_to 'New pet', new_pet_path,
+        class: 'rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium'
+    %>
   </div>
 
-  <div id='pets' class='min-w-full'>
+  <div id='pets' class='class='grid grid-cols-1 md:grid-cols-3 gap-x-6 gap-y-8 pt-8'>
     <% @pets.each do |pet| %>
       <%= render pet %>
-      <p>
-        <%= link_to 'Show this pet', pet, class: 'ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium' %>
-      </p>
     <% end %>
   </div>
 </div>

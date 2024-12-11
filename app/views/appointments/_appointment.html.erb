@@ -34,9 +34,9 @@
     </p>
   </div>
 
-  <div class='flex justify-between items-center border-t border-gray-400 pt-4'>
-    <% if action_name != 'show' %>
-      <%= link_to 'Show this appointment', appointment,
+  <div class='flex justify-between items-center border-t border-gray-400 pt-4 m-0'>
+    <% if action_name != 'show' && current_user.admin? %>
+      <%= link_to 'Show appointment', appointment,
             class: 'm-20 rounded-lg py-3 px-5 bg-gray-200 text-gray-700 font-semibold
                     hover:bg-blue-500 hover:text-white hover:shadow-lg transition-all
                     duration-300 ease-in-out transform hover:scale-105' %>

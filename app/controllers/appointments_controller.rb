@@ -4,7 +4,9 @@ class AppointmentsController < ApplicationController
   before_action :set_appointment, only: %i[show edit update destroy]
 
   def index
-    @appointments = Appointment.all
+    @pagy, @appointments = pagy(
+      FindAppointments.new.call(appointment_params_index), items: 10
+    )
   end
 
   def show; end
@@ -57,5 +59,9 @@ class AppointmentsController < ApplicationController
       :notes, :pet_id, :local_id,
       payments_attributes: %i[id billing_status user_id receipt _destroy]
     )
+  end
+
+  def appointment_params_index
+    params.permit(:query_text, :order_by, :status)
   end
 end

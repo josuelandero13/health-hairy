@@ -3,7 +3,7 @@
   class='flex flex-col sm:flex-row w-full rounded-lg
        bg-white shadow-secondary-2 border border-gray-200'
 >
-  <div class='w-full sm:w-1/2 ml-2 sm:ml-4'>
+  <section class='w-full sm:w-1/2 ml-2 sm:ml-4'>
     <div class='my-5 flex flex-col gap-5'>
       <strong class='block font-medium mb-1'>City:</strong>
       <p class='pl-12'><%= local.city&.name %></p>
@@ -15,16 +15,12 @@
     </div>
 
     <% if action_name != 'show' %>
-      <div class='flex flex-row items-center justify-center sm:justify-start w-full'>
+      <p>
         <%=
-          link_to 'Show',
-            local, class: 'rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium'
+          link_to 'Show this local', local,
+            class: 'ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium'
         %>
-        <%=
-          link_to 'Edit', edit_local_path(local),
-            class: 'rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium'
-        %>
-      </div>
+      </p>
     <% end %>
-  </div>
+  </section>
 </div>

@@ -1,4 +1,4 @@
-<div class='w-full'>
+<div class='p-8 mx-20'>
   <% content_for :title, 'Appointment types' %>
 
   <div class='flex justify-between items-center'>
@@ -12,12 +12,6 @@
   <div id='appointment_types' class='min-w-full'>
     <% @appointment_types.each do |appointment_type| %>
       <%= render appointment_type %>
-
-      <p>
-        <%= link_to t('appointment_types.views.link_to_show_appointment_type'), appointment_type,
-          class: 'ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium'
-        %>
-      </p>
     <% end %>
   </div>
 </div>

@@ -1,4 +1,4 @@
-<div class='w-full'>
+<div class='p-8 mx-20'>
   <% content_for :title, 'Locals' %>
 
   <div class='flex justify-between items-center'>
@@ -7,13 +7,9 @@
       class: 'rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium' %>
   </div>
 
-  <div id='locals' class='min-w-full'>
+  <div id='locals' class='grid grid-cols-1 md:grid-cols-3 gap-x-6 gap-y-8 m-20'>
     <% @locals.each do |local| %>
       <%= render local %>
-      <p>
-        <%= link_to 'Show this local', local,
-          class: 'ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium' %>
-      </p>
     <% end %>
   </div>
 </div>

@@ -52,6 +52,8 @@ gem 'image_processing', '~> 1.2'
 # Pagination
 gem 'pagy', '~> 9.3', '>= 9.3.3'
 
+gem 'pg_search', '~> 2.3'
+
 gem 'view_component', '~> 3.20'
 
 group :development, :test do

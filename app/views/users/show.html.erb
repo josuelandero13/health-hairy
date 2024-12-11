@@ -17,32 +17,9 @@
   </div>
 
   <div class="my-5">
-    <table class='w-full table'>
-      <thead>
-        <th class='border border-slate-300 p-3 text-left bg-slate-50'>
-          Status
-        </th>
-        <th class='border border-slate-300 p-3 text-left bg-slate-50'>
-          Pet Name
-        </th>
-        <th class='border border-slate-300 p-3 text-left bg-slate-50'>Breed</th>
-        <th class='border border-slate-300 p-3 text-left bg-slate-50'>Kind</th>
-        <th class='border border-slate-300 p-3 text-left bg-slate-50'>
-          Starts
-        </th>
-        <th class='border border-slate-300 p-3 text-left bg-slate-50'>Ends</th>
-        <th class='border border-slate-300 p-3 text-left bg-slate-50'>
-          Appointment Type
-        </th>
-        <th class='border border-slate-300 p-3 text-left bg-slate-50'>Paid</th>
-      </thead>
-
-      <tbody>
-        <%= turbo_frame_tag "appointments-#{@pagy.page}" do %>
-          <%= render @appointments %>
-        <% end %>
-      </tbody>
-    </table>
+    <%= turbo_frame_tag "appointments-#{@pagy.page}" do %>
+      <%= render @appointments %>
+    <% end %>
   </div>
   <div>
     <%== pagy_nav(@pagy) %>

@@ -1,1 +1,28 @@
-<h1>¡Bienvenido a Petspa!</h1>
+<section
+  class='flex flex-col md:flex-row items-center justify-between px-20 py-12 bg-white'
+>
+  <article class='mb-8 md:mb-0 text-center md:text-left'>
+    <h1
+      class='text-3xl md:text-5xl font-bold bg-gradient-to-r from-blue-400
+           to-teal-500 text-transparent bg-clip-text mb-4'
+    >
+      ¡Bienvenido a <%= t('app_name') %> 🐾
+    </h1>
+
+    <h2 class='text-2xl text-gray-700'>💆‍♂️ Relájate mientras cuidamos de ellos</h2>
+    <p class='text-lg text-gray-700 my-4'>
+      Reserva fácilmente baños, sesiones de spa y mucho más para tus amigos peludos,
+      todo en un solo lugar. Con solo unos clics, accede a servicios especializados
+      para consentir a tu mascota como se merece. Empieza ahora
+    </p>
+
+    <%=
+      link_to 'Reservar', new_user_path,
+        class: 'rounded-lg py-3 px-5 bg-blue-400 text-white block font-bold my-5 w-min'
+    %>
+  </article>
+
+  <div class='md:w-1/2 '>
+    <%= image_tag('svg/pet.svg', alt: 'Mascota', class: 'h-96 justify-self-center') %>
+  </div>
+</section>

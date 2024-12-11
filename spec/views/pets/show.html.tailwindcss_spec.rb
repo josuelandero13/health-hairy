@@ -6,7 +6,7 @@ RSpec.describe 'pets/show', type: :view do
   before(:each) do
     assign(:pet, Pet.create!(
       name: 'Name',
-      bred: 'Bred',
+      breed: 'Breed',
       kind: 2,
       user: nil
     ))
@@ -15,7 +15,7 @@ RSpec.describe 'pets/show', type: :view do
   it 'renders attributes in <p>' do
     render
     expect(rendered).to match(/Name/)
-    expect(rendered).to match(/Bred/)
+    expect(rendered).to match(/Breed/)
     expect(rendered).to match(/2/)
     expect(rendered).to match(//)
   end

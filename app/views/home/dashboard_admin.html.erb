@@ -1,1 +1,90 @@
-<h1>Dashboard Admin</h1>
+<div class='w-screen lg:w-9/12 mx-auto p-5 mt-3 rounded shadow-xl border'>
+  <header class='px-6 py-10 rounded-t-xl bg-gray-50'>
+    <h1 class='text-3xl font-extrabold text-center'>
+      <%= current_user.first_name %> Dashboard Admin Page
+    </h1>
+    <p class='text-center text-gray-600 mt-2'>
+      Here you can manage all the bookings that were created.
+    </p>
+  </header>
+
+  <nav class='my-5 flex justify-between items-center gap-5' aria-label='Primary Navigation'>
+    <div class='flex flex-col sm:flex-row gap-5 items-center justify-between'>
+      <%=
+        link_to 'My Cities', cities_path,
+          class: 'rounded-lg py-3 px-5 bg-blue-400 text-white block font-bold'
+      %>
+      <%=
+        link_to 'New City', new_city_path,
+          class: 'rounded-lg py-3 px-5 bg-blue-400 text-white block font-bold'
+      %>
+    </div>
+    <div class='flex flex-col sm:flex-row gap-5 items-center justify-between'>
+      <%=
+        link_to 'My Locals', locals_path,
+          class: 'rounded-lg py-3 px-5 bg-blue-400 text-white block font-bold'
+      %>
+      <%=
+        link_to 'New Local', new_local_path,
+          class: 'rounded-lg py-3 px-5 bg-blue-400 text-white block font-bold'
+      %>
+    </div>
+    <div class='flex flex-col sm:flex-row gap-5 items-center justify-between'>
+      <%=
+        link_to 'My Appointment Types', appointment_types_path,
+          class: 'rounded-lg py-3 px-5 bg-blue-400 text-white block font-bold w-max'
+      %>
+      <%=
+        link_to 'New Appointment Type', new_appointment_type_path,
+          class: 'rounded-lg py-3 px-5 bg-blue-400 text-white block font-bold'
+      %>
+    </div>
+  </nav>
+
+  <article class='mt-4'>
+    <section>
+      <div class='flex justify-start border-t border-slate-2 pt-5'>
+        <%=
+          link_to 'View all appointments', appointments_path,
+            class: 'bg-teal-400 text-white rounded p-4 font-bold'
+        %>
+      </div>
+    </section>
+
+    <% if @appointments.scheduled.any? %>
+      <section aria-labelledby='scheduled-appointments'>
+        <h2 id='scheduled-appointments' class='font-bold text-2xl mb-6 pt-10'>
+          Scheduled Appointments
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-x-6 gap-y-8">
+          <%= render partial: "appointment", collection: @appointments.scheduled.limit(8) %>
+        </div>
+      </section>
+    <% end %>
+
+    <% if @appointments.processing.any? %>
+      <section aria-labelledby='processing-appointments'>
+        <h2 id='processing-appointments' class='font-bold text-2xl mb-6 pt-10'>
+          Processing Appointments
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-x-6 gap-y-8">
+          <%= render partial: "appointment", collection: @appointments.processing.limit(8) %>
+        </div>
+      </section>
+    <% end %>
+
+    <% if @appointments.finished.any? %>
+      <section aria-labelledby='finished-appointments'>
+        <h2 id='finished-appointments' class='font-bold text-2xl mb-6 pt-10'>
+          Finished Appointments
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-x-6 gap-y-8">
+          <%= render partial: "appointment", collection: @appointments.finished.limit(8) %>
+        </div>
+      </section>
+    <% end %>
+  </body>
+</div>

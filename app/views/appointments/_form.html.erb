@@ -54,7 +54,13 @@
           value='<%= @appointment_type&.id %>'
         >
         <div class='flex items-start'>
-          <div class='text-3xl font-bold mr-3'><%= @appointment_type.name %>
+          <div class='text-3xl font-bold mr-3'><%= @appointment_type&.name %>
+            <!--
+              <div
+                class="absolute top-3 right-3 w-3 h-3 rounded-full"
+                       style="background-color: <%= @appointment_type&.color %>;"
+              ></div>
+            -->
             <%= render(BadgedComponent.new(appointment_type: @appointment_type)) %>
           </div>
         </div>

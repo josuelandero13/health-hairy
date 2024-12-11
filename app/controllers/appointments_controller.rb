@@ -31,7 +31,7 @@ class AppointmentsController < ApplicationController
 
   def update
     if @appointment.update(appointment_params)
-      redirect_to @appointment, notice: 'Appointment was successfully updated.'
+      redirect_to appointments_path, notice: 'Appointment was successfully updated.'
     else
       render :edit, status: :unprocessable_entity
     end

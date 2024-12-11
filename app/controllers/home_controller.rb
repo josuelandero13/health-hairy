@@ -21,6 +21,10 @@ class HomeController < ApplicationController
       current_user.appointments.order(created_at: :desc).limit(5)
   end
 
+  def dashboard_admin
+    @appointments = Appointment.order(created_at: :desc)
+  end
+
   private
 
   def admin_or_stylist_signed_in?

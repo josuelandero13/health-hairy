@@ -6,7 +6,7 @@ RSpec.describe 'pets/edit', type: :view do
   let(:pet) {
     Pet.create!(
       name: 'MyString',
-      bred: 'MyString',
+      breed: 'MyString',
       kind: 1,
       user: nil
     )
@@ -22,7 +22,7 @@ RSpec.describe 'pets/edit', type: :view do
     assert_select 'form[action=?][method=?]', pet_path(pet), 'post' do
       assert_select 'input[name=?]', 'pet[name]'
 
-      assert_select 'input[name=?]', 'pet[bred]'
+      assert_select 'input[name=?]', 'pet[breed]'
 
       assert_select 'input[name=?]', 'pet[kind]'
 

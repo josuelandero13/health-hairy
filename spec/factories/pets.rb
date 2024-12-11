@@ -3,7 +3,7 @@
 FactoryBot.define do
   factory :pet do
     name { 'MyString' }
-    bred { 'MyString' }
+    breed { 'MyString' }
     kind { 1 }
     user { nil }
   end

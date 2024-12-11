@@ -20,3 +20,170 @@
   border: 1px solid #020202;
   border-radius: 80%;
 }
+
+.inputBox {
+  position: relative;
+}
+
+.inputBox input,
+.inputBox textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid rgba(165, 164, 164, 0.7);
+  background: rgb(247, 247, 247);
+  border-radius: 5px;
+  outline: none;
+  color: #60A6FB;
+  font-size: 1em;
+  transition: 0.5s;
+}
+
+.inputBox label {
+  position: absolute;
+  left: 0;
+  padding: 10px;
+  pointer-events: none;
+  font-size: 1em;
+  letter-spacing: 0.2em;
+  color: #60A6FB;
+  text-transform: uppercase;
+  transition: 0.5s;
+}
+
+.inputBox input:valid ~ label,
+.inputBox input:focus ~ label,
+.inputBox textarea:valid ~ label,
+.inputBox textarea:focus ~ label {
+  color: #60A6FB;
+  transform: translateX(10px) translateY(-7px);
+  font-size: 0.65em;
+  padding: 0 10px;
+  background: rgb(235, 235, 235);
+  border-left: 1px solid #60A6FB;
+  border-right: 1px solid #60A6FB;
+  letter-spacing: 0.2em;
+}
+
+.inputBox:nth-child(2) input:valid ~ label,
+.inputBox:nth-child(2) input:focus ~ label,
+.inputBox:nth-child(2) textarea:valid ~ label,
+.inputBox:nth-child(2) textarea:focus ~ label {
+  background: rgb(235, 235, 235);
+  color:#60A6FB;
+  border-radius: 2px;
+}
+
+.inputBox input:valid,
+.inputBox input:focus,
+.inputBox textarea:valid,
+.inputBox textarea:focus {
+  border: 1px solid #60A6FB;
+}
+
+.table {
+  width: 100%;
+  border: 1px solid #ccc;
+  border-collapse: collapse;
+  margin: 0;
+  padding: 0;
+  table-layout: fixed;
+}
+
+.table caption {
+  font-size: 28px;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin: 8px 0px;
+}
+
+.table tr {
+  background-color: #f8f8f8;
+  border: 1px solid #ddd;
+}
+
+.table th, .table td {
+  font-size: 16px;
+  padding: 8px;
+  text-align: center;
+}
+
+.table thead th{
+  text-transform: uppercase;
+  background-color: #ddd;
+}
+
+.table tbody tr:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.table tbody td:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+@media screen and (max-width: 600px) {
+  .table {
+      border: 0px;
+  }
+  .table caption {
+      font-size: 22px;
+  }
+  .table thead {
+      display: none;
+  }
+  .table tr {
+      margin-bottom: 8px;
+      border-bottom: 4px solid #ddd;
+      display: block;
+  }
+  .table th, .table td {
+      font-size: 12px;
+  }
+  .table td {
+      display: block;
+      border-bottom: 1px solid #ddd;
+      text-align: right;
+  }
+  .table  td:last-child {
+      border-bottom: 0px;
+  }
+  .table td::before {
+      content: attr(data-label);
+      font-weight: bold;
+      text-transform: uppercase;
+      float: left;
+  }
+}
+
+nav[aria-label="Pages"] {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+a[aria-label="Previous"], a[aria-label="Next"] {
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: #60A6FB !important;
+  color: white !important;
+  font-weight: 400;
+}
+
+a[aria-label="Previous"][aria-disabled="true"] {
+  background: #cccccc !important;
+  color: white !important;
+  font-weight: 400;
+}
+
+.current {
+  padding: 5px 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: #384fb8 !important;
+  color: white;
+  font-weight: 700;
+}

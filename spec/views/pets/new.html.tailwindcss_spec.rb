@@ -6,7 +6,7 @@ RSpec.describe 'pets/new', type: :view do
   before(:each) do
     assign(:pet, Pet.new(
       name: 'MyString',
-      bred: 'MyString',
+      breed: 'MyString',
       kind: 1,
       user: nil
     ))
@@ -19,7 +19,7 @@ RSpec.describe 'pets/new', type: :view do
 
       assert_select 'input[name=?]', 'pet[name]'
 
-      assert_select 'input[name=?]', 'pet[bred]'
+      assert_select 'input[name=?]', 'pet[breed]'
 
       assert_select 'input[name=?]', 'pet[kind]'
 

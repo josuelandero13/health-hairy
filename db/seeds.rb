@@ -1,5 +1,11 @@
 # frozen_string_literal: true
 
+require 'net/http'
+require 'open-uri'
+
+url = Faker::LoremFlickr.image
+file = Net::HTTP.get(URI.parse(url))
+
 User.destroy_all
 AppointmentType.destroy_all
 City.destroy_all
@@ -15,21 +21,21 @@ user1 = User.create!(
   role: 2
 )
 
-# user2 = User.create!(
-#   first_name: 'tester2',
-#   last_name: 'tester petspa',
-#   username: 'tester2',
-#   email: 'tester2@petspa.com',
-#   phone: '+56 999 999 998',
-#   password: '12345',
-#   role: 0
-# )
+user2 = User.create!(
+  first_name: 'tester2',
+  last_name: 'testertino landero',
+  username: 'tester2landero',
+  email: 'tester2@petspa.com',
+  phone: '+56 999 999 998',
+  password: 'tester12345',
+  role: 0
+)
 
-# pet1 = Pet.create!(
-#   name: 'Firulais', breed: 'Poodle',
-#   important_data: 'Muerde a veces', user: user2,
-#   kind: 0
-# )
+pet1 = Pet.create!(
+  name: 'Firulais', breed: 'Poodle',
+  important_notes: 'Muerde a veces', user: user2,
+  kind: 0
+)
 
 city1 = City.create!(name: 'Leon')
 city2 = City.create!(name: 'San Marcos')
@@ -52,7 +58,7 @@ local3 = Local.create!(
 
 appointment_type1 = AppointmentType.create!(
   name: 'Baño', payment_required: true,
-  user: user1, price: 100,  color: '#38bdf8'
+  user: user1, price: 100, color: '#38bdf8'
 )
 
 appointment_type2 = AppointmentType.create!(
@@ -62,52 +68,56 @@ appointment_type2 = AppointmentType.create!(
 
 appointment_type3 = AppointmentType.create!(
   name: 'Session spa premium', payment_required: true,
-  user: user1, price: 250,  color: '#34d399'
+  user: user1, price: 250, color: '#34d399'
 )
 
-puts 'Seed finished!'
+15.times do |t|
+  appointment = Appointment.create!(
+    start_at: DateTime.now + t.day,
+    end_at: DateTime.now + t.day + 1.hour,
+    pet: pet1, client: user2,
+    appointment_type: appointment_type1,
+    status: 0, local: local1
+  )
+  payment = Payment.create!(
+    appointment: appointment,
+    user: user2
+  )
+  payment.receipt.attach(
+    io: StringIO.new(file),
+    filename: 'receipt_image.jpg',
+    content_type: 'image/jpeg'
+  )
+end
 
-# 15.times do |t|
-#   appointment = Appointment.create!(
-#     start_at: DateTime.now + t.day,
-#     end_at: DateTime.now + t.day + 1.hour,
-#     pet: pet1, client: user2,
-#     appointment_type: appointment_type1,
-#     status: 0, local: local1
-#   )
-#   payment = Payment.create!(
-#     appointment: appointment,
-#     user: user2
-#   )
-#   payment.receipt.attach(io: URI.open(Faker::LoremFlickr.image), filename: 'receipt_image.jpg')
-# end
-#
-# 20.times do |t|
-#   appointment = Appointment.create!(
-#     start_at: DateTime.now + t.day,
-#     end_at: DateTime.now + t.day + 1.hour,
-#     pet: pet1, client: user2,
-#     appointment_type: appointment_type1,
-#     status: 0, local: local2
-#   )
-#   payment = Payment.create!(
-#     appointment: appointment,
-#     user: user2
-#   )
-#   payment.receipt.attach(io: URI.open(Faker::LoremFlickr.image), filename: 'receipt_image.jpg')
-# end
-#
-# 25.times do |t|
-#   appointment = Appointment.create!(
-#     start_at: DateTime.now + t.day,
-#     end_at: DateTime.now + t.day + 1.hour,
-#     pet: pet1, client: user2,
-#     appointment_type: appointment_type1,
-#     status: 0, local: local3
-#   )
-#   payment = Payment.create!(
-#     appointment: appointment,
-#     user: user2
-#   )
-#   payment.receipt.attach(io: URI.open(Faker::LoremFlickr.image), filename: 'receipt_image.jpg')
-# end
+20.times do |t|
+  appointment = Appointment.create!(
+    start_at: DateTime.now + t.day,
+    end_at: DateTime.now + t.day + 1.hour,
+    pet: pet1, client: user2,
+    appointment_type: appointment_type1,
+    status: 0, local: local2
+  )
+  payment = Payment.create!(
+    appointment: appointment,
+    user: user2
+  )
+  payment.receipt.attach(io: URI.open(Faker::LoremFlickr.image), filename: 'receipt_image.jpg')
+end
+
+25.times do |t|
+  appointment = Appointment.create!(
+    start_at: DateTime.now + t.day,
+    end_at: DateTime.now + t.day + 1.hour,
+    pet: pet1, client: user2,
+    appointment_type: appointment_type1,
+    status: 0, local: local3
+  )
+  payment = Payment.create!(
+    appointment: appointment,
+    user: user2
+  )
+  payment.receipt.attach(io: URI.open(Faker::LoremFlickr.image), filename: 'receipt_image.jpg')
+end
+
+puts 'Seed finished!'

@@ -106,7 +106,7 @@ ActiveRecord::Schema[8.0].define(version: 2024_12_05_180838) do
 
   create_table "pets", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "name", null: false
-    t.string "bred", null: false
+    t.string "breed", null: false
     t.integer "kind", null: false
     t.uuid "user_id", null: false
     t.datetime "created_at", null: false

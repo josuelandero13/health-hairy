@@ -1,9 +1,10 @@
-<div>
+<div
+  class="bg-gradient-to-r from-blue-400 to-teal-500 flex justify-between items-center py-4 px-8"
+  data-controller="menu"
+>
   <%= link_to root_path do %>
-    <h1><%= t('app_name') %></h1>
+    <h1 class="text-3xl font-bold text-white"><%= t('app_name') %></h1>
   <% end %>
 
-  <div>
-    <%= render partial: 'shared/items' %>
-  </div>
+  <div class="hidden sm:block"><%= render partial: 'shared/items' %></div>
 </div>

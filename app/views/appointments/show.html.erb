@@ -1,19 +1,25 @@
-<div class='mx-auto md:w-2/3 w-full flex'>
+<div class='mx-auto mt-10 md:w-2/3 w-full flex'>
   <div class='mx-auto'>
     <%= render @appointment %>
 
     <%=
       link_to 'Edit this appointment', edit_appointment_path(@appointment),
-        class: 'mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium'
+        class: 'mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium font-semibold
+                hover:bg-blue-500 hover:text-white hover:shadow-lg transition-all
+                duration-300 ease-in-out transform hover:scale-105'
     %>
     <%=
       link_to 'Back to appointments', appointments_path,
-        class: 'ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium'
+        class: 'mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium font-semibold
+                hover:bg-blue-500 hover:text-white hover:shadow-lg transition-all
+                duration-300 ease-in-out transform hover:scale-105'
     %>
     <div class='inline-block ml-2'>
       <%=
         button_to 'Destroy this appointment', @appointment, method: :delete,
-          class: 'mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium'
+          class: 'mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium font-semibold
+                hover:bg-blue-500 hover:text-white hover:shadow-lg transition-all
+                duration-300 ease-in-out transform hover:scale-105'
       %>
     </div>
   </div>

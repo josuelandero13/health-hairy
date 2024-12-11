@@ -17,6 +17,6 @@ class ColorDivComponent < ViewComponent::Base
   private
 
   def background_color
-    appointment_type.color
+    appointment_type&.color
   end
 end

@@ -45,6 +45,6 @@ class PetsController < ApplicationController
   def pet_params
     params[:pet][:kind] = params[:pet][:kind].to_i if params[:pet][:kind].present?
 
-    params.expect(pet: %I[name bred kind user_id photo important_notes])
+    params.expect(pet: %I[name breed kind user_id photo important_notes])
   end
 end

@@ -1,4 +1,4 @@
-<div class='w-full'>
+<div class='p-8 mx-auto'>
   <% content_for :title, 'Appointments' %>
 
   <div class='flex justify-between items-center'>
@@ -9,15 +9,9 @@
     %>
   </div>
 
-  <div id='appointments' class='min-w-full'>
-    <% @appointments.each do |appointment| %>
-      <%= render appointment %>
-      <p>
-        <%=
-          link_to 'Show this appointment', appointment,
-            class: 'ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium'
-        %>
-      </p>
-    <% end %>
-  </div>
+  <section id='appointments' class='m-20'>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-x-6 gap-y-8">
+      <%= render partial: "appointments/appointment", collection: @appointments %>
+    </div>
+  </section>
 </div>
